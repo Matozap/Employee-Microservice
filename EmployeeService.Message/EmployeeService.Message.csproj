@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>NID.EmployeeService.Message</PackageId>
+    <Authors>Nicolas Zapata</Authors>
+    <Company>NZR</Company>
+    <Product>NID</Product>
+    <Description>Contract library usually used to send messages to the NID Employee Service Microservice</Description>
+    <Copyright>NID</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>NID, Employee Service, Employee, Contract, Message</PackageTags>
+    <PackageReleaseNotes>Release Candidate</PackageReleaseNotes>
+    <RepositoryType>Microservice Contract</RepositoryType>
+    <PackageIcon>Deloitte.png</PackageIcon>
+    <Version>1.0.3</Version>
+    <LangVersion>10</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <Resource Include="logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

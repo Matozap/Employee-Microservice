@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>EmployeeService.Performance.ApplicationBenchmark-20201215-210418</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1198 (1909/November2018Update/19H2)
+Intel Xeon CPU E5-2686 v4 2.30GHz, 1 CPU, 8 logical and 8 physical cores
+.NET Core SDK=5.0.101
+  [Host]     : .NET Core 5.0.1 (CoreCLR 5.0.120.57516, CoreFX 5.0.120.57516), X64 RyuJIT
+  Job-CYVKDA : .NET Core 5.0.1 (CoreCLR 5.0.120.57516, CoreFX 5.0.120.57516), X64 RyuJIT
+</code></pre>
+<pre><code>IterationCount=5  LaunchCount=1  RunStrategy=Throughput  
+WarmupCount=1  
+</code></pre>
+
+<table>
+<thead><tr><th>          Method</th><th> Mean</th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>GetAllEmployeesX10</td><td>177.6 ms</td><td>5.09 ms</td><td>0.79 ms</td>
+</tr><tr><td>GetAllEmployeesX100</td><td>200.7 ms</td><td>9.93 ms</td><td>1.54 ms</td>
+</tr><tr><td>GetAllEmployeesX1000</td><td>501.1 ms</td><td>89.48 ms</td><td>23.24 ms</td>
+</tr><tr><td>GetAllEmployeesX10000</td><td>4,182.8 ms</td><td>1,412.58 ms</td><td>218.60 ms</td>
+</tr><tr><td>GetAllEmployeesX100000</td><td>18,680.9 ms</td><td>2,604.78 ms</td><td>676.45 ms</td>
+</tr></tbody></table>
+</body>
+</html>
