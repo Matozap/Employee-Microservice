@@ -56,7 +56,7 @@ namespace EmployeeService.Test.Queries.Employee.v1
             Func<Task> action = async () => await handler.Handle(classToHandle, new CancellationToken());
 
             //Assert
-            action.Should().ThrowAsync<ValidationException>().WithMessage("*Employee Id*");
+            action.Should().ThrowAsync<ArgumentNullException>();
         }
     }
 }

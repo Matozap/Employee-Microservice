@@ -32,7 +32,7 @@ namespace EmployeeService.Application.Commands.Employee.v1
 
         public async Task<object> Handle(UpdateEmployee request, CancellationToken cancellationToken)
         {
-            if (request.EmployeeDetails?.Id == "0")
+            if (string.IsNullOrEmpty(request.EmployeeDetails?.Id))
             {
                 const string message = "Employee Id cannot be zero, null or empty.";
                 _logger.LogWarning(message);

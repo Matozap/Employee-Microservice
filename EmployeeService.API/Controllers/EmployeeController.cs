@@ -24,7 +24,7 @@ namespace EmployeeService.API.Controllers
         /// <param name="from">Start row</param>
         /// <param name="to">End Row</param>
         /// <returns>All employees</returns>
-        [HttpGet("{from}/{to}")]
+        [HttpGet("{from:int}/{to:int}")]
         public async Task<IActionResult> GetAllEmployees(int from, int to)
         {
             var query = new GetAllEmployees

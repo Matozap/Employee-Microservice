@@ -50,11 +50,8 @@ namespace EmployeeService.Infrastructure.Data.Repository
 
         public async Task<Employee> AddAsync(Employee entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(Employee)} entity must not be null");
-            }
-
+            ArgumentNullException.ThrowIfNull(entity);
+            
             await _applicationContext.AddAsync(entity);
             await _applicationContext.SaveChangesAsync();
 
@@ -63,11 +60,8 @@ namespace EmployeeService.Infrastructure.Data.Repository
 
         public async Task<Employee> UpdateAsync(Employee entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(Employee)} entity must not be null");
-            }
-
+            ArgumentNullException.ThrowIfNull(entity);
+            
             _applicationContext.Update(entity);
             await _applicationContext.SaveChangesAsync();
 
@@ -76,11 +70,8 @@ namespace EmployeeService.Infrastructure.Data.Repository
 
         public async Task<Employee> DeleteAsync(Employee entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(Employee)} entity must not be null");
-            }
-
+            ArgumentNullException.ThrowIfNull(entity);
+            
             _applicationContext.Remove(entity);
             await _applicationContext.SaveChangesAsync();
 

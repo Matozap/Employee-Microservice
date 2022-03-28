@@ -10,6 +10,7 @@ using EmployeeService.API.Extensions;
 using EmployeeService.Application;
 using EmployeeService.Infrastructure;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Extensions.Hosting;
 
 namespace EmployeeService.API
 {
@@ -62,7 +63,7 @@ namespace EmployeeService.API
             try
             {                
                 app.UseSerilogLogging();
-                if(env.EnvironmentName == "Development")
+                if(env.IsDevelopment())
                     app.UseSwaggerApi();
                 
                 app.UseApplication();

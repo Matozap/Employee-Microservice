@@ -1,4 +1,5 @@
-﻿using EmployeeService.Application.App.Interfaces;
+﻿using System;
+using EmployeeService.Application.App.Interfaces;
 using EmployeeService.Message.Messaging.Request.v1;
 using AutoMapper;
 using MediatR;
@@ -27,10 +28,7 @@ namespace EmployeeService.Application.Queries.Employee.v1
 
         public async Task<object> Handle(GetEmployeeById request, CancellationToken cancellationToken)
         {
-            if (request.EmployeeId == "0")
-            {
-                throw new ValidationException("Employee Id must be greater than 0.");
-            }
+            ArgumentNullException.ThrowIfNull(request.EmployeeId);
 
             var cacheKey = GetCacheKey(request.EmployeeId.ToString());
             var cachedValue = await _cache.GetCacheValueAsync<Message.DTO.v1.EmployeeDto>(cacheKey, cancellationToken);

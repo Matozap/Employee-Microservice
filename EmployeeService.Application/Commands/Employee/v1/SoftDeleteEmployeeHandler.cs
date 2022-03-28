@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using EmployeeService.Application.App.Interfaces;
 using EmployeeService.Message.DTO.v1;
 using EmployeeService.Message.Messaging.Request.v1;
@@ -32,12 +33,7 @@ namespace EmployeeService.Application.Commands.Employee.v1
 
         public async Task<object> Handle(SoftDeleteEmployee request, CancellationToken cancellationToken)
         {
-            if (request.EmployeeId == "0")
-            {
-                const string message = "Employee Id cannot be zero, null or empty.";
-                _logger.LogWarning(message);
-                throw new ValidationException(message);
-            }
+            ArgumentNullException.ThrowIfNull(request.EmployeeId);
 
             await UpdateEmployee(request.EmployeeId);
 

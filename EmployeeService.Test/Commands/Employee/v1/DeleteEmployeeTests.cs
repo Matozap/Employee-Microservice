@@ -49,7 +49,7 @@ namespace EmployeeService.Test.Commands.Employee.v1
             // Arrange
             var employee = MockBuilder.GenerateMockEmployee();
             var employeeDto = MockBuilder.GenerateMockEmployeeDto();
-            employee.Id = "0";
+            employee.Id = null;
             var classToHandle = new DeleteEmployee()
             {
                 EmployeeId = employee.Id

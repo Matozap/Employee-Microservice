@@ -51,7 +51,7 @@ namespace EmployeeService.Test.Commands.Employee.v1
             // Arrange
             var employee = MockBuilder.GenerateMockEmployee();
             var employeeDto = MockBuilder.GenerateMockEmployeeDto();
-            employeeDto.Id = "0";
+            employeeDto.Id = null;
             var classToHandle = new UpdateEmployee()
             {
                 EmployeeDetails = employeeDto
